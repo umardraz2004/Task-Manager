@@ -1,0 +1,7 @@
+[
+  { "id": 1, "text": "Finish reading a book", "completed": false },
+  { "id": 2, "text": "Write a blog post", "completed": true },
+  { "id": 3, "text": "Plan a vacation", "completed": false },
+  { "id": 4, "text": "Organize files on the computer", "completed": true },
+  { "id": 5, "text": "Update resume", "completed": false }
+]
