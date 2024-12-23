@@ -46,14 +46,58 @@ const useTasks = () => {
     }
   };
 
-  const updateTask = (id, newText) => {
-    setTasks(
-      tasks.map((task) => (task.id === id ? { ...task, text: newText } : task))
-    );
+  const updateTask = async (id, newText) => {
+    try {
+      const newTask = {
+        id: id,
+        text: newText,
+        completed: false,
+      };
+      const response = await fetch("http://localhost:3000/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newTask),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      // Update tasks in the state
+      setTasks(
+        tasks.map((task) =>
+          task.id === id ? { ...task, text: newText } : task
+        )
+      );
+    } catch (error) {
+      console.error("Error adding task:", error);
+    }
   };
 
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+  const deleteTask = async (id) => {
+    try {
+      const deleteTaskID = {
+        id: id,
+      };
+      const response = await fetch("http://localhost:3000/delete", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(deleteTaskID),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      // Update tasks in the state
+      setTasks(tasks.filter((task) => task.id !== id));
+    } catch (error) {
+      console.error("Error adding task:", error);
+    }
   };
 
   return { tasks, addTask, updateTask, deleteTask };
