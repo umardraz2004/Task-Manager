@@ -43,7 +43,7 @@ cd backend
 npm install
 ```
 
-### 3. 📥 Install dependencies
+### 3. 📥 Run project
 ```bash
 // After installing all the dependencies, go back to the root folder
 cd ..
