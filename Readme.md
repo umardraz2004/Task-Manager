@@ -31,11 +31,19 @@ All task data is saved to and read from a local `.json` file on the backend — 
 ```bash
 git clone https://github.com/umardraz2004/Task-Manager.git
 cd task-manager
+```
+
+### 2. 📥 Install dependencies
+```bash
 npm install
 cd frontend
 npm install
 cd backend
 npm install
+```
 
+### 3. 📥 Install dependencies
+```bash
 // After installing all the dependencies come back to the root of folder of task manager and run
 npm start
+```
